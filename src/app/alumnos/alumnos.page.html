@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="duoc-blue">
+    <ion-title>home</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> <!-- Agregamos el botón de hamburguesa del menú lateral -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="container flex justify-between">
+
+    <div>
+      <ion-title  *ngIf="nombreUsuario">Bienvenido, {{ nombreUsuario }}.</ion-title>
+    </div>
+
+    <div>
+      <ion-title>Fecha</ion-title>
+    </div>
+
+  </div>
+
+  <ion-row>
+
+    <ion-col sizeLg="6" sizeMd="6" sizeXs="12" *ngFor="let ramo of asig">
+
+      <ion-card>
+        <a (click)="asislist()" ><img src="../../assets/imag/{{ramo.image}}" class="w-full"></a>
+        <div class="card-tittle ml-2">
+          <h3 class="pb-1.5">{{ramo.seccion}}</h3>
+          <h1 class="pb-1.5">{{ramo.name}}</h1>
+          <h2>{{ramo.profesor}}</h2>
+        </div>
+
+      </ion-card>
+
+    </ion-col>
+
+   </ion-row>
+
+
+
+
+
+
+
+</ion-content>

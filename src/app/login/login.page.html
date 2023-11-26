@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="duoc-blue">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="min-h-screen flex items-center justify-center">
+  <div class="flex flex-col justify-center items-center h-5/6 m-3.5">
+    <div>
+      <img [src]="imagenUrl" alt="Mi Imagen" class="relative mx-auto my-4 max-w-xs">
+    </div>
+    <div class="flex justify-items-start">
+      <h5 class="text-xl font-bold text-gray-900">Iniciar Sesión</h5>
+    </div>
+    <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+      <div class="mb-4">
+        <app-custom-input
+          icon="mail-outline"
+          [autocomplete]=""
+          [control]="form.controls.email"
+          type="email"
+          label="Correo"
+          class="mb-2"
+          required
+        ></app-custom-input>
+        <div color="danger" class="validators font-bold text-red-500" *ngIf="form.controls.email.errors && form.controls.email.touched">
+          <div *ngIf="form.controls.email.errors?.['required']" class="mb-1">El correo es requerido</div>
+          <div *ngIf="form.controls.email.errors?.['email']" class="mb-1">Ingrese un correo válido</div>
+        </div>
+      </div>
+      <div class="mb-4">
+        <app-custom-input
+          [control]="form.controls.password"
+          icon="lock-closed-outline"
+          type="password"
+          label="Contraseña"
+          class="mb-2"
+          required
+        ></app-custom-input>
+        <div class="validators font-bold text-red-500" *ngIf="form.controls.password.errors && form.controls.password.touched">
+          <div *ngIf="form.controls.password.errors?.['required']" class="mb-1">La contraseña es requerida</div>
+        </div>
+      </div>
+      <div class="flex items-center mb-4">
+        <ion-checkbox id="remember" color="primary" class="mr-2"></ion-checkbox>
+        <label for="remember" class="text-black font-bold">Recordarme</label>
+      </div>
+      <div class="flex justify-center mb-4">
+        <ion-button
+          color="duoc-yellow"
+          class="boton submit "
+          type="submit"
+          [disabled]="form.invalid || spinner"
+         
+        >
+          <ng-container *ngIf="!spinner; else spinnerTemplate">
+            Ingresar
+            <ion-icon slot="end" name="log-in-outline"></ion-icon>
+          </ng-container>
+          <ng-template #spinnerTemplate>
+            <ion-spinner name="crescent" color="black"></ion-spinner>
+          </ng-template>
+        </ion-button>
+
+      </div>
+    </form>
+    <div class="mb-4">
+      <p>¿No recuerdas tu contraseña?</p>
+      <a (click)="go()" class="font-bold text-xl text-black">Recupera tu Contraseña</a>
+    </div>
+  </div>
+</ion-content>
+
+
