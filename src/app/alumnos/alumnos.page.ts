@@ -13,7 +13,7 @@ import {map } from 'rxjs/operators';
 })
 export class AlumnosPage implements OnInit {
 
-  nombreUsuario: string = ''; // Variable para almacenar el nombre de usuario
+  nombreUsuario: string = ''; //almacenar el nombre de usuario
 
   asig: any=[];
 
@@ -25,9 +25,9 @@ export class AlumnosPage implements OnInit {
 
   
       ngOnInit() {
-        this.nombreUsuario = this.usuarioService.getNombreUsuario(); // Obtén el nombre de usuario al inicializar la página
+        this.nombreUsuario = this.usuarioService.getNombreUsuario(); //obtener el nombre de usuario al inicializar la página
         this.getAsig().subscribe(res=>{
-          console.log("SON REGIONES",res)
+          console.log("aaaaaaaaa",res)
           this.asig= res;
 
 

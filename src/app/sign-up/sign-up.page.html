@@ -1,4 +1,4 @@
-<app-header backButton="/login" ></app-header>
+<app-header backButton="/login" >Agregar Usuario</app-header>
 <ion-content >
 
     <div class="d-flex-center">
@@ -40,7 +40,7 @@
                 <div *ngIf="form.controls.email.errors?.['required']">El correo no es requerido</div>
                 <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
             </div>
-       
+    
 
             <!--======Password========-->
 
@@ -60,9 +60,9 @@
                 Registrate
                 <ion-icon slot="end" name="person-add-outline"></ion-icon>
             </ion-button>
-           
-           </form>
-       
+        
+        </form>
+    
     </div>
 
 
