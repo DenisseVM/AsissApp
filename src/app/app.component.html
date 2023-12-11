@@ -21,6 +21,17 @@
             <ion-label>{{ label }}</ion-label>
           </ion-item>
         </ion-list>
+
+        <div *ngIf="isMobile; else qrCode">
+          <!--para dispositivos móviles -->
+          <button (click)="downloadApp()">Descargar App</button>
+        </div>
+        <ng-template #qrCode>
+          <!--código QR para PC -->
+          <ngx-qrcode [qrc-element-type]="url" [qrc-value]="url"></ngx-qrcode>
+        </ng-template>
+        
+
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
