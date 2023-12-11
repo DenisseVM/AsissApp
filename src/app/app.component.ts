@@ -27,5 +27,4 @@ export class AppComponent {
     alert('Redirigir a la página de descarga de la aplicación para dispositivos móviles.');
     window.location.href = 'https://github.com/DenisseVM/asissappAPK/blob/main/AsissApp.apk';
   }
-
 }
